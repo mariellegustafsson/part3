@@ -69,8 +69,9 @@ app.get('/api/persons', (request, response) => {
           if (!number || !name){
             response.status(400).send('name or number missing')
           }
-          else if (persons.filter(person => person.name !== name)){
+          else if (persons.some(person => person.name === name)){
             response.status(400).send('name must be unique')
+            console.log(persons)
           } else{
             persons = persons.concat(newperson)
             response.json(newperson)
