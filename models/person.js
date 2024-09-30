@@ -20,8 +20,7 @@ mongoose.connect(url)
     name: String,
     number: String,
 })
-//ska detta vara någonstas?
-//const Person = mongoose.model('Person', PersonSchema)
+
 
 PersonSchema.set('toJSON', {
   transform: (document, returnedObject) => {
@@ -32,3 +31,7 @@ PersonSchema.set('toJSON', {
 })
 
 module.exports = mongoose.model('Person', PersonSchema)
+
+
+//ska detta vara någonstas?
+//const Person = mongoose.model('Person', PersonSchema)
