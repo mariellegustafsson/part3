@@ -1,6 +1,6 @@
 
-const { argv } = require('node:process');
-require('dotenv').config();
+const { argv } = require('node:process')
+require('dotenv').config()
 const password = process.argv[2]
 const url = `mongodb+srv://mariellegustafsson:${password}@cluster0.ondva.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 
@@ -25,21 +25,21 @@ const PersonSchema = new mongoose.Schema({
 const Person = mongoose.model('Person', PersonSchema)
 
 if (argv[3]=== undefined){
-console.log("phonebook")
-Person.find({}).then(result => {
+  console.log('phonebook')
+  Person.find({}).then(result => {
     result.forEach(person => {
       console.log(`${person.name} ${person.number}`)
     })
     mongoose.connection.close()
   })}
-  else{
-    const person = new Person({
-        name: process.argv[3],
-        number: process.argv[4]
-      })
-    
-    person.save().then(() => {
-      console.log(`${process.argv[3]} number ${process.argv[4]} added to phonebook`)
-      mongoose.connection.close()
-    })
-  }
+else{
+  const person = new Person({
+    name: process.argv[3],
+    number: process.argv[4]
+  })
+
+  person.save().then(() => {
+    console.log(`${process.argv[3]} number ${process.argv[4]} added to phonebook`)
+    mongoose.connection.close()
+  })
+}

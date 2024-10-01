@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
     "build:ui": "@powershell Remove-Item -Recurse -Force dist && cd ../frontend && npm run build && @powershell Copy-Item dist -Recurse ../backend"
@@ -21,6 +22,10 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@stylistic/eslint-plugin-js": "^2.8.0",
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0",
     "nodemon": "^3.1.7"
   }
 }
