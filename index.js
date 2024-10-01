@@ -26,10 +26,11 @@ app.get('/api/persons', (request, response) => {
   })
 })
 
-//OBSOBSOBS här saknas antalet personer
-
 app.get('/api/info', (request, response) => {
-  response.send(`Phonebook has info for people <br> ${Date()}`)
+  Person.countDocuments()
+  .then(count => {
+    response.send(`Phonebook has info for ${count} people <br> ${new Date()}`);
+  })
 })
 
 app.post('/api/persons', (request, response) => {
